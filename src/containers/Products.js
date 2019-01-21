@@ -43,22 +43,30 @@ class Products extends Component {
       <Fragment>
         <Topbar />
         <ListGroup>
-        {products.map(item => (
-          <ListGroupItem className="rounded-0">
-            <div className="d-flex">
-              <div className="mr-auto">
-                {item.name}
-                <br />
-                <small>{item.description}</small>
+        {products.length ?
+          products.map(item => (
+            <ListGroupItem className="rounded-0">
+              <div className="d-flex">
+                <div className="mr-auto">
+                  {item.name}
+                  <br />
+                  <small>{item.description}</small>
+                </div>
+                <div>
+                  <b>{setCurrency('USD', item.price, 2)}</b>
+                  <br />
+                  <small>{item.quantity} left</small>
+                </div>
               </div>
-              <div>
-                <b>{setCurrency('USD', item.price, 2)}</b>
-                <br />
-                <small>{item.quantity} left</small>
-              </div>
+            </ListGroupItem>
+          ))
+          :
+          (<ListGroupItem className="rounded-0">
+            <div className="text-center">
+              No products added yet.
             </div>
           </ListGroupItem>
-        ))}
+          )}
         </ListGroup>
       </Fragment>
     );

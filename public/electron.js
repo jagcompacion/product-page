@@ -11,10 +11,12 @@ let newProductWindow;
 
 function createWindow() {
   productWindow = new BrowserWindow({ width: 900, height: 680, webPreferences: { webSecurity: !isDev } });
+  productWindow.setMenu(null);
   productWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
   productWindow.on('closed', () => productWindow = null);
 
-  newProductWindow = new BrowserWindow({ width: 400, height: 500, parent: productWindow, show: false });
+  newProductWindow = new BrowserWindow({ width: 400, height: 480, parent: productWindow, show: false });
+  newProductWindow.setMenu(null);
   newProductWindow.loadURL(isDev ? 'http://localhost:3000/new-product' : `file://${path.join(__dirname, '../build/index.html')}`);
   newProductWindow.on('close', e => {
     e.preventDefault();
