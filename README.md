@@ -6,7 +6,7 @@ Redux
 
 ## Getting Started
 
-```
+```javascript
 // access root directory
 cd product-page-app
 
