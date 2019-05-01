@@ -18,5 +18,4 @@ yarn start
 
 // start electron
 yarn run electron-dev
-
 ```
